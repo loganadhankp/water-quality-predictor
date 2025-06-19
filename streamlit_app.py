@@ -7,8 +7,8 @@ import plotly.graph_objects as go
 import datetime
 
 # Load model and scaler
-model = joblib.load(r"C:\water_project\water_quality_model.pkl")
-scaler = joblib.load(r"C:\water_project\scaler.pkl")
+model = joblib.load("water_quality_model.pkl")
+scaler = joblib.load("scaler.pkl")
 
 # Define features
 features = ['NH4', 'BSK5', 'Suspended', 'O2', 'NO3', 'NO2', 'SO4', 'PO4', 'CL']
@@ -96,7 +96,7 @@ if st.button("🔍 Predict"):
 # 📊 Optional: Compare with dataset average
 with st.expander("📊 Compare with Average from Dataset"):
     try:
-        data = pd.read_csv("C:/Users/Loganaadhan/OneDrive/Desktop/PB_All_2000_2021.csv")
+        data = pd.read_csv("PB_All_2000_2021.csv")
         avg = data[features].mean().round(2).to_dict()
         st.write("🧪 Average Values in Dataset:")
         st.json(avg)
